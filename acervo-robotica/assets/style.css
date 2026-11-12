@@ -1,0 +1,350 @@
+/* ==========================================================================
+   Acervo do Campeonato Joinvilense de Robótica — pré-código
+   Fonte de verdade: modelagem-campeonato-robotica.md (seções 2, 4 e 8).
+   Valores de cor, tamanho e proporção são ESTIMATIVAS medidas das imagens de referência.
+
+   Mantido do MVP: prefixo .acervo- e variáveis --ac-* (sem reset global, para não
+   colidir com o tema WordPress), .acervo-sr, .acervo-skip, .acervo-embed e .acervo-alto-contraste.
+   ========================================================================== */
+
+/* 1. Tokens (modelagem 2) -------------------------------------------------- */
+:root {
+  --ac-primary: #0b4a9e;
+  --ac-primary-dark: #0a3d7a;
+  --ac-primary-soft: #dcebfa;
+  --ac-on-primary: #ffffff;
+  --ac-overlay: rgba(11, 74, 158, 0.55);
+  --ac-bg: #f4f6fa;
+  --ac-card: #ffffff;
+  --ac-text: #1f2937;
+  --ac-muted: #4b5563;
+  --ac-border: #d9e0ea;
+  --ac-libras: #3b82f6;
+  --ac-radius: 8px;
+  --ac-sombra: 0 2px 8px rgba(16, 24, 40, 0.08);
+  --ac-fonte: "Roboto", "Segoe UI", Arial, sans-serif;
+}
+
+/* 2. Base ------------------------------------------------------------------ */
+.acervo-body {
+  margin: 0;
+  background: var(--ac-bg);
+  color: var(--ac-text);
+  font-family: var(--ac-fonte);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.acervo-body *,
+.acervo-body *::before,
+.acervo-body *::after { box-sizing: border-box; }
+
+.acervo-body a { color: var(--ac-primary); }
+
+/* Foco visível em fundo claro e escuro: anel interno escuro + anel externo amarelo. */
+.acervo-body :focus-visible {
+  outline: 3px solid #ffbf47;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px #0a2540;
+}
+
+.acervo-container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+.acervo-sr {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+.acervo-skip {
+  position: absolute; left: -999px; top: 0; z-index: 2000;
+  padding: 0.5rem 1rem; background: #ffffff; color: var(--ac-primary);
+}
+.acervo-skip:focus { left: 8px; top: 8px; }
+
+.acervo-icone { flex: none; width: 1.25em; height: 1.25em; }
+
+/* 3. Tipografia de seção --------------------------------------------------- */
+.acervo-titulo {
+  margin: 0 0 0.25rem; color: var(--ac-primary);
+  font-size: 1.875rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;
+}
+.acervo-desc { margin: 0 0 1rem; color: var(--ac-text); font-size: 1rem; }
+.acervo-secao { margin: 2rem 0; }
+.acervo-vazio { padding: 1.5rem; background: var(--ac-card); border: 1px solid var(--ac-border); border-radius: var(--ac-radius); }
+
+/* 4. Links e botões -------------------------------------------------------- */
+.acervo-link {
+  display: flex; align-items: center; gap: 6px;
+  color: var(--ac-primary); font-size: 0.9375rem; font-weight: 700; text-decoration: none;
+}
+.acervo-link .acervo-icone { width: 1.1em; height: 1.1em; }
+.acervo-link--esticado::after { content: ""; position: absolute; inset: 0; }
+
+.acervo-btn,
+.acervo-btn-icone {
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 0; border-radius: 6px; cursor: pointer; font: inherit; text-decoration: none;
+}
+.acervo-btn { gap: 8px; height: 38px; padding: 0 14px; font-size: 0.875rem; font-weight: 700; }
+.acervo-btn--primario { background: var(--ac-primary); color: var(--ac-on-primary) !important; }
+.acervo-btn .acervo-icone { width: 1em; height: 1em; }
+.acervo-btn-icone { width: 40px; height: 40px; background: var(--ac-primary); color: var(--ac-on-primary); }
+
+/* 5. Selo "DADO FICTÍCIO" e chips ------------------------------------------ */
+.acervo-selo {
+  display: inline-block; padding: 4px 12px; border-radius: 999px;
+  color: var(--ac-primary); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.02em;
+  line-height: 1.2; text-transform: uppercase;
+}
+.acervo-selo--overlay { position: absolute; top: 10px; left: 18px; z-index: 1; background: #ffffff; box-shadow: var(--ac-sombra); }
+.acervo-selo--solid { background: var(--ac-primary-soft); }
+
+.acervo-chip {
+  display: inline-block; padding: 2px 12px; border-radius: 999px;
+  background: var(--ac-primary-soft); color: var(--ac-primary); font-size: 0.875rem; font-weight: 700;
+}
+.acervo-chip--destaque { padding: 2px 20px; }
+
+/* 6. Mídia com proporção fixa e espaço reservado --------------------------- */
+.acervo-midia {
+  position: relative; aspect-ratio: var(--ac-prop, 2 / 1); overflow: hidden; background: var(--ac-primary-soft);
+}
+.acervo-midia img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.acervo-ph {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  padding: 8px; background: linear-gradient(135deg, #dcebfa, #bcd6f3); color: var(--ac-primary);
+  font-size: 0.75rem; text-align: center;
+}
+.acervo-ph span { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; opacity: 0.8; }
+
+/* 7. Cabeçalho (modelagem 4.2) --------------------------------------------- */
+.acervo-cabecalho { background: #ffffff; box-shadow: 0 1px 0 var(--ac-border); position: relative; z-index: 50; }
+.acervo-cabecalho__conteudo { display: flex; align-items: center; justify-content: space-between; min-height: 60px; gap: 16px; }
+.acervo-cabecalho__nav { display: flex; align-items: center; gap: 24px; }
+.acervo-cabecalho__links { display: flex; align-items: center; gap: 36px; }
+.acervo-cabecalho__links a { color: var(--ac-primary); font-size: 0.9375rem; font-weight: 700; text-decoration: none; }
+.acervo-cabecalho__links a:hover { text-decoration: underline; }
+.acervo-menu-toggle { display: none; }
+
+.acervo-logo { display: inline-flex; align-items: center; text-decoration: none; color: var(--ac-primary); }
+.acervo-logo__img { display: block; height: 44px; width: auto; }
+.acervo-logo__texto { display: inline-flex; flex-direction: column; line-height: 1; font-stretch: condensed; }
+.acervo-logo__texto small { font-size: 0.75rem; font-weight: 500; }
+.acervo-logo__texto strong { font-size: 1.375rem; font-weight: 700; letter-spacing: -0.02em; }
+
+/* 8. Hero e busca (modelagem 4.4 / 4.5) ------------------------------------ */
+.acervo-hero {
+  background:
+    linear-gradient(var(--ac-overlay), var(--ac-overlay)),
+    url("img/hero-joinville-aerea.jpg") center / cover no-repeat,
+    #1e4f8f;
+  color: #ffffff; text-align: center;
+}
+.acervo-hero__conteudo { padding-top: 48px; padding-bottom: 40px; min-height: 240px; }
+.acervo-hero__titulo { margin: 0; font-size: clamp(1.75rem, 4vw, 2.375rem); font-weight: 700; letter-spacing: -0.01em; line-height: 1.2; }
+.acervo-hero__subtitulo { margin: 8px 0 0; font-size: clamp(1.0625rem, 2vw, 1.375rem); font-weight: 400; }
+
+.acervo-busca { position: relative; max-width: 700px; margin: 28px auto 0; }
+.acervo-busca input {
+  width: 100%; height: 42px; padding: 0 52px 0 20px; border: 0; border-radius: 6px;
+  background: #ffffff; color: var(--ac-text); font: inherit; font-size: 1rem;
+}
+.acervo-busca input::placeholder { color: #6b7280; }
+.acervo-busca button {
+  position: absolute; top: 0; right: 0; width: 52px; height: 42px; border: 0; background: none;
+  color: var(--ac-primary); cursor: pointer;
+}
+
+/* 9. Botões flutuantes (modelagem 4.3) ------------------------------------- */
+.acervo-flutuante { position: fixed; top: 110px; right: 0; z-index: 900; width: 58px; }
+.acervo-flutuante button {
+  display: flex; align-items: center; justify-content: center; border: 0; cursor: pointer;
+  box-shadow: var(--ac-sombra); border-radius: 8px 0 0 8px;
+}
+.acervo-flutuante__a11y { width: 58px; height: 58px; background: #ffffff; color: var(--ac-primary); }
+.acervo-flutuante__a11y .acervo-icone { width: 34px; height: 34px; }
+.acervo-flutuante__libras { position: absolute; top: 125px; right: 0; width: 42px; height: 42px; background: var(--ac-libras); color: #ffffff; }
+.acervo-a11y-painel {
+  position: absolute; top: 0; right: 66px; display: grid; gap: 6px; width: 190px; padding: 12px;
+  background: #ffffff; border: 1px solid var(--ac-border); border-radius: var(--ac-radius); box-shadow: var(--ac-sombra);
+}
+.acervo-a11y-painel[hidden] { display: none; }
+.acervo-a11y-painel button {
+  width: 100%; padding: 8px 10px; border: 1px solid var(--ac-border); border-radius: 6px;
+  background: var(--ac-bg); color: var(--ac-primary); box-shadow: none; font: inherit; font-weight: 700; text-align: left;
+}
+.acervo-a11y-painel button[aria-pressed="true"] { background: var(--ac-primary); color: var(--ac-on-primary); }
+
+/* 10. Estatísticas (modelagem 4.8) ----------------------------------------- */
+.acervo-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 0 0 1.25rem; }
+.acervo-stat {
+  display: flex; flex-direction: column; align-items: center; padding: 12px 8px;
+  background: var(--ac-card); border: 1px solid var(--ac-border); border-radius: var(--ac-radius); box-shadow: var(--ac-sombra);
+}
+.acervo-stat strong { color: var(--ac-primary); font-size: 2.25rem; font-weight: 700; line-height: 1.15; }
+.acervo-stat span { font-size: 1rem; }
+
+/* 11. Carrossel (modelagem 4.9) -------------------------------------------- */
+.acervo-carrossel__palco {
+  position: relative; overflow: hidden; border: 1px solid var(--ac-border);
+  border-radius: var(--ac-radius); box-shadow: var(--ac-sombra); background: var(--ac-card);
+}
+.acervo-carrossel__slide { display: none; }
+.acervo-carrossel__slide.is-ativo { display: block; }
+.acervo-midia--carrossel { min-height: 140px; }
+.acervo-carrossel__nav {
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 2;
+  display: flex; align-items: center; justify-content: center; width: 40px; height: 40px;
+  border: 0; border-radius: 50%; background: #ffffff; color: var(--ac-primary); box-shadow: var(--ac-sombra); cursor: pointer;
+}
+.acervo-carrossel__nav--ant { left: 16px; }
+.acervo-carrossel__nav--prox { right: 16px; }
+.acervo-carrossel__pontos { display: flex; justify-content: center; gap: 2px; margin-top: 6px; }
+.acervo-carrossel__pontos button { position: relative; width: 24px; height: 24px; padding: 0; border: 0; background: none; cursor: pointer; }
+.acervo-carrossel__pontos button::before {
+  content: ""; position: absolute; inset: 6px; border-radius: 50%;
+  border: 2px solid #b8c2d0; background: #ffffff;
+}
+.acervo-carrossel__pontos button[aria-current="true"]::before { border-color: var(--ac-primary); background: var(--ac-primary); }
+
+/* 12. Grades e cards (modelagem 4.10, 4.10b, 4.14) ------------------------- */
+.acervo-grade { display: grid; gap: 1.25rem; }
+.acervo-grade--2 { grid-template-columns: repeat(2, 1fr); }
+.acervo-grade--4 { grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+
+.acervo-card-ed, .acervo-card-linha, .acervo-card-res {
+  position: relative; background: var(--ac-card); border: 1px solid var(--ac-border);
+  border-radius: var(--ac-radius); box-shadow: var(--ac-sombra); overflow: hidden;
+}
+.acervo-card-ed:focus-within, .acervo-card-linha:focus-within, .acervo-card-res:focus-within { outline: 3px solid #ffbf47; outline-offset: 2px; }
+.acervo-card-ed a:focus-visible, .acervo-card-linha a:focus-visible, .acervo-card-res a:focus-visible { outline: 0; box-shadow: none; }
+
+.acervo-card-ed__corpo { padding: 8px 20px 14px; }
+.acervo-card-ed__ano { margin: 0; color: var(--ac-primary); font-size: 1.25rem; font-weight: 700; }
+.acervo-card-ed__titulo { margin: 0 0 4px; color: var(--ac-primary); font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; line-height: 1.2; }
+.acervo-card-ed__desc { margin: 0 0 12px; }
+.acervo-card-ed .acervo-link, .acervo-card-res .acervo-link { padding-top: 12px; border-top: 1px solid var(--ac-border); }
+
+.acervo-card-linha { display: grid; grid-template-columns: auto 1fr auto; gap: 16px; align-items: center; padding: 16px; }
+.acervo-card-linha__icone {
+  display: flex; align-items: center; justify-content: center; width: 70px; height: 70px;
+  border-radius: 6px; background: var(--ac-primary-soft); color: var(--ac-primary);
+}
+.acervo-card-linha__icone .acervo-icone { width: 34px; height: 34px; }
+.acervo-card-linha__ano { margin: 0; color: var(--ac-primary); font-size: 1.125rem; font-weight: 700; }
+.acervo-card-linha__titulo { margin: 0; color: var(--ac-primary); font-size: 1.25rem; font-weight: 700; line-height: 1.2; }
+.acervo-card-linha__meta { margin: 0; }
+.acervo-card-linha__acao { align-self: stretch; padding-left: 20px; border-left: 1px solid var(--ac-border); }
+
+.acervo-card-res__corpo { padding: 10px 14px 12px; }
+.acervo-card-res__titulo { margin: 0 0 4px; color: var(--ac-primary); font-size: 1.125rem; font-weight: 700; line-height: 1.25; }
+.acervo-card-res__linha { margin: 0; font-size: 0.9375rem; }
+.acervo-card-res .acervo-chip { margin: 10px 0 12px; }
+
+/* 13. Página da edição (modelagem 4.11 a 4.15) ----------------------------- */
+.acervo-migalhas { margin: 1.25rem 0 0.75rem; font-size: 0.9375rem; }
+.acervo-migalhas ol { display: flex; flex-wrap: wrap; margin: 0; padding: 0; list-style: none; }
+.acervo-migalhas li + li::before { content: "/"; margin: 0 8px; color: var(--ac-muted); }
+.acervo-migalhas a { text-decoration: none; font-weight: 500; }
+.acervo-migalhas a:hover { text-decoration: underline; }
+
+.acervo-edicao-cab { margin-bottom: 1.25rem; }
+.acervo-edicao-cab__h1 { margin: 0 0 6px; color: var(--ac-primary); font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; }
+.acervo-edicao-cab__tema { margin: 6px 0 2px; color: var(--ac-primary); font-size: 1.75rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; }
+
+.acervo-memoria {
+  display: grid; grid-template-columns: 58fr 42fr; margin: 0 0 2rem; overflow: hidden;
+  background: var(--ac-card); border: 1px solid var(--ac-border); border-radius: var(--ac-radius); box-shadow: var(--ac-sombra);
+}
+.acervo-memoria .acervo-midia { aspect-ratio: auto; height: 100%; min-height: 200px; }
+.acervo-memoria__texto { display: flex; flex-direction: column; justify-content: center; padding: 24px 32px; }
+.acervo-memoria__eyebrow { margin: 0; color: var(--ac-primary); font-size: 1.25rem; font-weight: 700; }
+.acervo-memoria__titulo { margin: 0 0 8px; color: var(--ac-primary); font-size: 1.625rem; font-weight: 700; letter-spacing: -0.01em; }
+.acervo-memoria__texto p { margin: 0; }
+.acervo-memoria__rotulo { margin-top: 18px !important; padding-top: 14px; border-top: 1px solid var(--ac-border); color: var(--ac-primary); font-weight: 700; }
+
+.acervo-galeria .acervo-midia { border-radius: var(--ac-radius); }
+
+.acervo-fonte dl { display: grid; grid-template-columns: max-content 1fr; gap: 4px 16px; margin: 0 0 1rem; }
+.acervo-fonte dt { font-weight: 700; }
+.acervo-fonte dd { margin: 0; }
+
+.acervo-resultados-busca { padding: 0; list-style: none; }
+.acervo-resultados-busca li { padding: 10px 0; border-bottom: 1px solid var(--ac-border); }
+
+/* 14. Rodapé (modelagem 4.16) ---------------------------------------------- */
+.acervo-rodape { margin-top: 2.5rem; padding: 18px 0; background: var(--ac-primary-dark); color: #ffffff; }
+.acervo-rodape__conteudo { display: flex; align-items: center; gap: 24px; min-height: 44px; }
+.acervo-logo--branco, .acervo-logo--branco .acervo-logo__texto { color: #ffffff; }
+.acervo-rodape__nav { display: flex; flex-wrap: wrap; gap: 8px 32px; padding: 6px 24px; border-left: 1px solid rgba(255, 255, 255, 0.35); border-right: 1px solid rgba(255, 255, 255, 0.35); }
+.acervo-rodape__nav a { color: #ffffff; font-size: 0.9375rem; font-weight: 700; text-decoration: none; }
+.acervo-rodape__nav a:hover { text-decoration: underline; }
+.acervo-rodape__texto { margin: 0 0 0 auto; font-size: 0.8125rem; }
+
+/* 15. Modo embed (iframe no site da prefeitura) — do MVP -------------------- */
+.acervo-embed { background: transparent; }
+
+/* 16. Alto contraste (agora ativado pelo painel de acessibilidade) --------- */
+.acervo-alto-contraste {
+  --ac-bg: #000000; --ac-card: #000000; --ac-text: #ffffff; --ac-muted: #ffffff;
+  --ac-border: #ffffff; --ac-primary: #ffeb3b; --ac-primary-dark: #000000;
+  --ac-primary-soft: #000000; --ac-on-primary: #000000; --ac-overlay: rgba(0, 0, 0, 0.8);
+}
+.acervo-alto-contraste .acervo-cabecalho { background: #000000; box-shadow: 0 1px 0 #ffffff; }
+.acervo-alto-contraste .acervo-rodape { border-top: 1px solid #ffffff; }
+.acervo-alto-contraste .acervo-selo--overlay { background: #000000; border: 1px solid #ffeb3b; }
+.acervo-alto-contraste .acervo-selo--solid, .acervo-alto-contraste .acervo-chip { border: 1px solid #ffeb3b; }
+.acervo-alto-contraste .acervo-ph { background: #000000; color: #ffffff; border: 1px solid #ffffff; }
+.acervo-alto-contraste .acervo-flutuante__a11y,
+.acervo-alto-contraste .acervo-a11y-painel,
+.acervo-alto-contraste .acervo-carrossel__nav,
+.acervo-alto-contraste .acervo-busca input { background: #000000; color: #ffeb3b; border: 1px solid #ffeb3b; }
+.acervo-alto-contraste .acervo-flutuante__libras { background: #000000; color: #ffeb3b; border: 1px solid #ffeb3b; }
+
+/* 17. Responsividade (modelagem 8) ----------------------------------------- */
+@media (max-width: 1023px) {
+  .acervo-stats { grid-template-columns: repeat(2, 1fr); }
+  .acervo-grade--4 { grid-template-columns: repeat(2, 1fr); }
+  .acervo-cabecalho__links { gap: 20px; }
+}
+
+@media (max-width: 767px) {
+  .acervo-container { padding: 0 16px; }
+  .acervo-stats, .acervo-grade--2, .acervo-grade--4, .acervo-memoria { grid-template-columns: 1fr; }
+  .acervo-memoria .acervo-midia { height: auto; aspect-ratio: 3 / 1; }
+  .acervo-memoria__texto { padding: 20px; }
+
+  .acervo-cabecalho__nav { gap: 10px; }
+  .acervo-menu-toggle {
+    display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px;
+    border: 1px solid var(--ac-border); border-radius: 6px; background: #ffffff; color: var(--ac-primary); cursor: pointer;
+  }
+  .acervo-cabecalho__links {
+    display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: flex-start;
+    gap: 14px; padding: 16px; background: #ffffff; border-top: 1px solid var(--ac-border); box-shadow: var(--ac-sombra);
+  }
+  .acervo-cabecalho__links.is-aberto { display: flex; }
+  .acervo-alto-contraste .acervo-cabecalho__links, .acervo-alto-contraste .acervo-menu-toggle { background: #000000; }
+
+  .acervo-hero__conteudo { padding-top: 32px; padding-bottom: 28px; min-height: 200px; }
+  .acervo-midia--carrossel { aspect-ratio: auto; min-height: 140px; height: 140px; }
+  .acervo-carrossel__nav { width: 36px; height: 36px; }
+
+  .acervo-flutuante { top: 90px; width: 44px; }
+  .acervo-flutuante__a11y { width: 44px; height: 44px; }
+  .acervo-flutuante__a11y .acervo-icone { width: 26px; height: 26px; }
+  .acervo-flutuante__libras { top: 56px; width: 36px; height: 36px; }
+  .acervo-a11y-painel { right: 52px; }
+
+  .acervo-card-linha { grid-template-columns: auto 1fr; }
+  .acervo-card-linha__acao { grid-column: 1 / -1; padding: 12px 0 0; border-left: 0; border-top: 1px solid var(--ac-border); }
+
+  .acervo-rodape__conteudo { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .acervo-rodape__nav { padding: 12px 0; border: 0; border-top: 1px solid rgba(255, 255, 255, 0.35); border-bottom: 1px solid rgba(255, 255, 255, 0.35); width: 100%; }
+  .acervo-rodape__texto { margin: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .acervo-body * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
+\n\n/* 18. Refinamento final — fidelidade às referências do portal municipal ----- */\n.acervo-body { background: #f6f7f9; }\n.acervo-cabecalho { box-shadow: 0 1px 0 rgba(11,74,158,.08); }\n.acervo-cabecalho__conteudo { min-height: 58px; }\n.acervo-logo__img { height: 46px; max-width: 180px; object-fit: contain; }\n.acervo-hero { background-position: center 48%; }\n.acervo-hero__conteudo { min-height: 264px; padding-top: 58px; padding-bottom: 48px; }\n.acervo-busca { max-width: 720px; }\n.acervo-busca input { height: 46px; box-shadow: 0 1px 3px rgba(16,24,40,.14); }\n.acervo-busca button { height: 46px; }\n.acervo-secao { margin: 2.25rem 0; }\n.acervo-secao:first-child { margin-top: 2rem; }\n.acervo-stats { margin-top: 1rem; margin-bottom: 1.3rem; }\n.acervo-stat { min-height: 88px; box-shadow: 0 1px 4px rgba(16,24,40,.05); }\n.acervo-carrossel { margin-top: 1.25rem; }\n.acervo-carrossel__palco { border-color: #d3dae4; }\n.acervo-midia--carrossel { min-height: 142px; }\n.acervo-carrossel__pontos { margin-top: 3px; }\n.acervo-card-ed, .acervo-card-linha, .acervo-card-res, .acervo-memoria { box-shadow: 0 2px 8px rgba(16,24,40,.065); }\n.acervo-card-ed__corpo { padding: 8px 20px 15px; }\n.acervo-card-ed__titulo { font-size: 1.35rem; }\n.acervo-card-ed__desc { min-height: 46px; color: #303846; }\n.acervo-card-res__corpo { padding: 10px 14px 12px; }\n.acervo-galeria .acervo-midia { box-shadow: 0 1px 5px rgba(16,24,40,.07); }\n.acervo-rodape { margin-top: 2.2rem; }\n.acervo-rodape .acervo-logo__img { height: 48px; }\n@media (max-width: 767px) {\n  .acervo-logo__img { height: 40px; max-width: 150px; }\n  .acervo-hero__conteudo { min-height: 218px; padding-top: 36px; padding-bottom: 32px; }\n  .acervo-card-ed__desc { min-height: 0; }\n}\n

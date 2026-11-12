@@ -1,0 +1,284 @@
+{
+  "versao_contrato": "1.1",
+  "edicoes": [
+    {
+      "id": "joinville-robotica-2021",
+      "ano": 2021,
+      "numero": 1,
+      "edicao": "1ª edição",
+      "tema": null,
+      "resumo": "Registro demonstrativo criado exclusivamente para o protótipo.",
+      "descricao_card": null,
+      "introducao": null,
+      "status": "rascunho",
+      "ficticio": true,
+      "destaque_home": false,
+      "escolas": 5,
+      "equipes": 9,
+      "estudantes": 28,
+      "estudantes_aproximado": false,
+      "projetos_total": null,
+      "imagens": {},
+      "resultados": [],
+      "galeria": [],
+      "projetos": [
+        {
+          "titulo": "Robô coletor de peças coloridas",
+          "equipe": "Equipe Cometa"
+        },
+        {
+          "titulo": "Miniesteira classificadora",
+          "equipe": "Equipe Pulso Azul"
+        }
+      ],
+      "fonte": {
+        "origem": "Base sintética de demonstração",
+        "validado_por": "Perfil fictício de revisão",
+        "validado_em": null
+      },
+      "historico_correcoes": []
+    },
+    {
+      "id": "joinville-robotica-2022",
+      "ano": 2022,
+      "numero": 2,
+      "edicao": "2ª edição",
+      "tema": null,
+      "resumo": "Edição fictícia usada para demonstrar o fluxo editorial do acervo.",
+      "descricao_card": null,
+      "introducao": null,
+      "status": "validado",
+      "ficticio": true,
+      "destaque_home": false,
+      "escolas": 7,
+      "equipes": 14,
+      "estudantes": 46,
+      "estudantes_aproximado": false,
+      "projetos_total": null,
+      "imagens": {},
+      "resultados": [],
+      "galeria": [],
+      "projetos": [
+        {
+          "titulo": "Robô explorador de labirinto",
+          "equipe": "Equipe Prisma 7"
+        },
+        {
+          "titulo": "Braço automatizado para peças leves",
+          "equipe": "Equipe Quasar"
+        }
+      ],
+      "fonte": {
+        "origem": "Base sintética de demonstração",
+        "validado_por": "Perfil fictício de revisão",
+        "validado_em": null
+      },
+      "historico_correcoes": []
+    },
+    {
+      "id": "joinville-robotica-2023",
+      "ano": 2023,
+      "numero": 3,
+      "edicao": "3ª edição",
+      "tema": "Construindo o futuro",
+      "resumo": "Edição demonstrativa com desafios de navegação, resgate e construção criativa.",
+      "descricao_card": null,
+      "introducao": null,
+      "status": "publicado",
+      "ficticio": true,
+      "destaque_home": false,
+      "escolas": 11,
+      "equipes": 23,
+      "estudantes": 76,
+      "estudantes_aproximado": false,
+      "projetos_total": 18,
+      "imagens": {},
+      "resultados": [],
+      "galeria": [],
+      "projetos": [
+        {
+          "titulo": "Robô de resgate em percurso simulado",
+          "equipe": "Equipe Íon"
+        },
+        {
+          "titulo": "Sistema automatizado de irrigação em bancada",
+          "equipe": "Equipe Órbita Sul"
+        }
+      ],
+      "fonte": {
+        "origem": "Base sintética de demonstração",
+        "validado_por": "Perfil fictício de revisão",
+        "validado_em": null
+      },
+      "historico_correcoes": []
+    },
+    {
+      "id": "joinville-robotica-2024",
+      "ano": 2024,
+      "numero": 4,
+      "edicao": "4ª edição",
+      "tema": "Energia e movimento",
+      "resumo": "Edição fictícia com projetos voltados a energia, movimento e automação escolar.",
+      "descricao_card": null,
+      "introducao": null,
+      "status": "publicado",
+      "ficticio": true,
+      "destaque_home": false,
+      "escolas": 15,
+      "equipes": 31,
+      "estudantes": 102,
+      "estudantes_aproximado": false,
+      "projetos_total": 24,
+      "imagens": {},
+      "resultados": [],
+      "galeria": [],
+      "projetos": [
+        {
+          "titulo": "Plataforma móvel com sensores de distância",
+          "equipe": "Equipe Giro"
+        },
+        {
+          "titulo": "Robô sumô com estratégia programada",
+          "equipe": "Equipe Hexa"
+        }
+      ],
+      "fonte": {
+        "origem": "Base sintética de demonstração",
+        "validado_por": "Perfil fictício de revisão",
+        "validado_em": null
+      },
+      "historico_correcoes": []
+    },
+    {
+      "id": "joinville-robotica-2025",
+      "ano": 2025,
+      "numero": 5,
+      "edicao": "5ª edição",
+      "tema": "Robôs que transformam",
+      "resumo": "Edição demonstrativa voltada a soluções criativas para escola e comunidade.",
+      "descricao_card": "Uma edição fictícia voltada a soluções criativas para escola e comunidade.",
+      "introducao": null,
+      "status": "publicado",
+      "ficticio": true,
+      "destaque_home": true,
+      "escolas": 18,
+      "equipes": 38,
+      "estudantes": 132,
+      "estudantes_aproximado": false,
+      "projetos_total": null,
+      "imagens": {
+        "capa": {
+          "src": "assets/img/edicao-2025-capa.jpg",
+          "alt": "Robô de peças cinza com garra amarela sobre a mesa de competição, com estudantes de camiseta azul ao fundo."
+        }
+      },
+      "resultados": [],
+      "galeria": [],
+      "projetos": [
+        {
+          "titulo": "Robô sumô com controle adaptativo",
+          "equipe": "Equipe Pêndulo"
+        },
+        {
+          "titulo": "Carrinho autônomo em pista simulada",
+          "equipe": "Equipe Vértice"
+        }
+      ],
+      "fonte": {
+        "origem": "Base sintética de demonstração",
+        "validado_por": "Perfil fictício de revisão",
+        "validado_em": null
+      },
+      "historico_correcoes": []
+    },
+    {
+      "id": "joinville-robotica-2026",
+      "ano": 2026,
+      "numero": 6,
+      "edicao": "6ª edição",
+      "tema": "Cidade inteligente em movimento",
+      "resumo": "Edição demonstrativa com 46 equipes fictícias, 22 escolas fictícias e cerca de 168 participantes fictícios.",
+      "descricao_card": "Projetos fictícios inspirados em mobilidade, automação e sustentabilidade urbana.",
+      "introducao": "Esta página usa equipes, projetos e classificações fictícias apenas para demonstrar a experiência de navegação.",
+      "status": "publicado",
+      "ficticio": true,
+      "nota": "Todos os valores, equipes, projetos e resultados desta edição são sintéticos e existem apenas para demonstração.",
+      "destaque_home": true,
+      "escolas": 22,
+      "equipes": 46,
+      "estudantes": 168,
+      "estudantes_aproximado": true,
+      "projetos_total": null,
+      "imagens": {
+        "capa": {
+          "src": "assets/img/edicao-2026-capa.jpg",
+          "alt": "Robô de peças brancas e cinza com rodas pretas sobre a mesa de competição, com estudantes de camiseta azul ao fundo."
+        },
+        "destaque": {
+          "src": "assets/img/edicao-2026-destaque.jpg",
+          "alt": "Robô de peças brancas e cinza com rodas pretas em primeiro plano e estudantes de camiseta azul desfocados ao fundo."
+        }
+      },
+      "resultados": [
+        {
+          "categoria": "robotica-de-missao",
+          "equipe": "Nebulosa",
+          "projeto": "Rota Azul",
+          "colocacao": "primeiro"
+        },
+        {
+          "categoria": "sumo-autonomo",
+          "equipe": "Torque",
+          "projeto": "Mantis",
+          "colocacao": "primeiro"
+        },
+        {
+          "categoria": "resgate",
+          "equipe": "Lumen",
+          "projeto": "Farol",
+          "colocacao": "primeiro"
+        },
+        {
+          "categoria": "inovacao",
+          "equipe": "Ponto Zero",
+          "projeto": "Verdejar",
+          "colocacao": "destaque"
+        }
+      ],
+      "galeria": [
+        {
+          "src": "assets/img/galeria-2026-1.jpg",
+          "alt": "Estudante de perfil usando um notebook que exibe a modelagem 3D de um robô."
+        },
+        {
+          "src": "assets/img/galeria-2026-2.jpg",
+          "alt": "Vista ampla da arena da competição, com público e mesas de prova."
+        },
+        {
+          "src": "assets/img/galeria-2026-3.jpg",
+          "alt": "Mãos de estudantes montando e ajustando um robô de peças."
+        },
+        {
+          "src": "assets/img/galeria-2026-4.jpg",
+          "alt": "Três medalhas douradas com ícone de robô sobre tecido azul."
+        }
+      ],
+      "projetos": [
+        {
+          "titulo": "Carrinho autônomo para percurso simulado",
+          "equipe": "Equipe Órbita Azul"
+        },
+        {
+          "titulo": "Robô seguidor de linha com leitura de cores",
+          "equipe": "Equipe Circuito 9"
+        }
+      ],
+      "fonte": {
+        "origem": "Base sintética de demonstração",
+        "validado_por": "Perfil fictício de revisão",
+        "validado_em": null
+      },
+      "historico_correcoes": []
+    }
+  ]
+}

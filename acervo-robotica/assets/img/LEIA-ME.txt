@@ -1,0 +1,20 @@
+Imagens esperadas (nomes exatos; proporção entre parênteses). Enquanto não existirem, o layout mostra espaços reservados.
+
+hero-joinville-aerea.jpg                 fundo do hero (largura total; usado pelo CSS)
+logo-prefeitura-joinville.svg            logo colorida do cabeçalho
+logo-prefeitura-joinville-branco.svg     logo branca do rodapé
+
+carrossel-1.jpg ... carrossel-4.jpg      (7:1)
+edicao-2026-capa.jpg                     (4:1)  card da home
+edicao-2025-capa.jpg                     (4:1)  card da home
+edicao-2026-destaque.jpg                 (3:1)  bloco "Memória do evento"
+
+categoria-robotica-de-missao.jpg         (2,1:1)
+categoria-sumo-autonomo.jpg              (2,1:1)
+categoria-resgate.jpg                    (2,1:1)
+categoria-inovacao.jpg                   (2,1:1)
+
+galeria-2026-1.jpg ... galeria-2026-4.jpg   (2:1)
+
+Todas usam object-fit: cover; fotos já recortadas nessas proporções evitam cortes inesperados.
+Os textos alternativos ficam em data/edicoes.json, data/categorias.json e inc/config.php.

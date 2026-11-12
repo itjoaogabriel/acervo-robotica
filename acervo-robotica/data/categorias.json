@@ -1,0 +1,40 @@
+{
+  "categorias": [
+    {
+      "slug": "robotica-de-missao",
+      "nome": "Robótica de missão",
+      "rotulo_item": "Projeto",
+      "imagem": {
+        "src": "assets/img/categoria-robotica-de-missao.jpg",
+        "alt": "Robô com uma bola azul sobre a mesa de missões."
+      }
+    },
+    {
+      "slug": "sumo-autonomo",
+      "nome": "Sumô autônomo",
+      "rotulo_item": "Robô",
+      "imagem": {
+        "src": "assets/img/categoria-sumo-autonomo.jpg",
+        "alt": "Robô baixo e achatado em um ringue circular preto."
+      }
+    },
+    {
+      "slug": "resgate",
+      "nome": "Resgate",
+      "rotulo_item": "Projeto",
+      "imagem": {
+        "src": "assets/img/categoria-resgate.jpg",
+        "alt": "Robô de esteiras diante de um obstáculo cinza."
+      }
+    },
+    {
+      "slug": "inovacao",
+      "nome": "Inovação",
+      "rotulo_item": "Projeto",
+      "imagem": {
+        "src": "assets/img/categoria-inovacao.jpg",
+        "alt": "Robô de rodas amarelas com uma planta crescendo sobre ele."
+      }
+    }
+  ]
+}
