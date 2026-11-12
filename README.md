@@ -91,6 +91,27 @@ Ferramentas de inteligência artificial foram utilizadas como apoio durante pesq
 
 As decisões técnicas, revisão e validação da entrega são de responsabilidade da equipe.
 
+## Arquitetura e continuidade
+
+O MVP foi desenvolvido em PHP, HTML, CSS e JavaScript e executado
+localmente em Apache/XAMPP.
+
+Essa escolha reduz a complexidade da demonstração e permite validar
+a experiência do usuário antes de introduzir persistência ou integrações
+institucionais.
+
+Em uma eventual implantação, a proposta é aproveitar o ambiente
+WordPress já existente no portal, estruturando cada edição como conteúdo
+gerenciável e relacionando categorias, resultados e galeria.
+
+Não é objetivo deste MVP criar um banco de dados paralelo nem substituir
+sistemas responsáveis pela gestão do evento ou pelos resultados das
+competições.
+
+O fluxo previsto é:
+
+Fonte institucional → validação/curadoria → publicação → consulta pública.
+
 ## Aviso
 
 Este é um protótipo acadêmico desenvolvido para fins de demonstração no Hackathon ADS e não constitui uma aplicação oficial da Prefeitura de Joinville.
